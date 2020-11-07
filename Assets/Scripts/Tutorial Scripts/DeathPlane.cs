@@ -7,8 +7,13 @@ public class DeathPlane : MonoBehaviour
     [SerializeField]
     private GameObject checkpoint;
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        other.transform.position = checkpoint.transform.position;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.GetComponent<CharacterController>().enabled = false;
+            other.transform.position = checkpoint.transform.position;
+            other.GetComponent<CharacterController>().enabled = true;
+        }
     }
 }
