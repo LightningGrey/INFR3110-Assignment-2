@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1437040292377196511}
-  - {fileID: 3313140109390859949}
+  - {fileID: 7400761231647687748}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
-  - {fileID: 3313140109390859949}
+  - {fileID: 7400761231647687748}
   StringsBanks:
   - {fileID: 1437040292377196511}
-  stringsBankWriteTime: 637402608043566857
+  stringsBankWriteTime: 637401044076093354
   cacheVersion: 3
 --- !u!114 &1437040292377196511
 MonoBehaviour:
@@ -37,7 +37,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Sounds/Fmod/DustboundAudio/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637402608043566857
+  lastModified: 637401044076093354
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -76,6 +76,24 @@ MonoBehaviour:
   Path: Assets/Sounds/Fmod/DustboundAudio/Build/Desktop/Master.bank
   SubDir: 
   lastModified: 637402608043557209
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &7400761231647687748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sounds/Fmod/DustboundAudio/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637401044076063462
   LoadResult: 0
   FileSizes: []
   Exists: 1
