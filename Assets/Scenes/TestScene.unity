@@ -5387,6 +5387,11 @@ MonoBehaviour:
   player: {fileID: 1765971389}
   character: {fileID: 11400000, guid: 78d207552b963ee45b0a635a8c29385d, type: 2}
   speed: 200
+  reach: 2
+  attackTime: 0
+  blockRadius: 10
+  blockTimer: 0
+  hit: 0
 --- !u!136 &1080046676
 CapsuleCollider:
   m_ObjectHideFlags: 0
