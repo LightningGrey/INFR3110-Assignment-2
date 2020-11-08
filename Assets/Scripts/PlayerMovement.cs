@@ -37,6 +37,14 @@ public class PlayerMovement : MonoBehaviour
     private bool isAttacking = false;
 
 
+    //reset rotations upon respawn from death
+    public void ResetRotations()
+    {
+        xRotation = 0.0f;
+        yRotation = 0.0f;
+    }
+
+
     private void Awake()
     {
         playerInput = new Input();
@@ -98,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void BasicAttack()
+    private void BasicAttack()
     {
         if (hitbox.gameObject.activeSelf == false && isAttacking == false)
         {
@@ -157,4 +165,5 @@ public class PlayerMovement : MonoBehaviour
         // when the camera is angled all the way down
         vcam.InternalUpdateCameraState(followTarget.transform.up, Time.deltaTime);
     }
+
 }
