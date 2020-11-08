@@ -5362,8 +5362,8 @@ GameObject:
   - component: {fileID: 1080046678}
   - component: {fileID: 1080046677}
   - component: {fileID: 1080046676}
-  - component: {fileID: 1080046675}
   - component: {fileID: 1080046679}
+  - component: {fileID: 1080046675}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -5380,18 +5380,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1080046674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab65ee1e091d37540af3e99c956f2e36, type: 3}
+  m_Script: {fileID: 11500000, guid: cbff5ed513e8e7a47812aac7db9a6cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 2
+  state: 0
   player: {fileID: 1765971389}
   character: {fileID: 11400000, guid: 78d207552b963ee45b0a635a8c29385d, type: 2}
   speed: 200
   reach: 2
   attackTime: 0
-  blockRadius: 10
-  blockTimer: 0
-  hit: 0
 --- !u!136 &1080046676
 CapsuleCollider:
   m_ObjectHideFlags: 0

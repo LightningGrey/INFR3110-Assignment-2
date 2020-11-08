@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BerserkerBehaviour : MonoBehaviour
+public class BerserkerBehaviour : Enemy
 {
     public CharacterState state;
     public GameObject player;
@@ -14,6 +14,7 @@ public class BerserkerBehaviour : MonoBehaviour
     public enum CharacterState { idle, attacking, moving, blocking}
 
     public float attackTime = 0.0f;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -39,7 +40,7 @@ public class BerserkerBehaviour : MonoBehaviour
         }
     }
 
-    virtual public void idle()
+    public void idle()
     {
         //Behaviour for idle position
         //Debug.Log(character.charName + " is idle");
@@ -49,7 +50,7 @@ public class BerserkerBehaviour : MonoBehaviour
         }
     }
 
-    virtual public void attacking()
+    public void attacking()
     {
         //Behaviour for attacking position
         //Debug.Log(character.charName + " is attacking");
@@ -73,7 +74,7 @@ public class BerserkerBehaviour : MonoBehaviour
         }
     }
 
-    virtual public void moving(Vector3 pos)
+    public void moving(Vector3 pos)
     {
         //Behaviour for moving position
         //Debug.Log(character.charName + " is moving");

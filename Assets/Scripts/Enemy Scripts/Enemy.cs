@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int HP;
+
+    public void OnHit(int damage)
     {
-        
+        HP -= damage;
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OnHit(Attack _attack)
-    {
-  
-    }
 }

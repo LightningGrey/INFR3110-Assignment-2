@@ -15,6 +15,6 @@ public class PlayerAttack : Attack
 
     override public void OnContact(Collider other)
     {
-        other.gameObject.GetComponent<Enemy>().OnHit(this);
+        //other.gameObject.GetComponent<Enemy>().OnHit(this);
     }
 }
