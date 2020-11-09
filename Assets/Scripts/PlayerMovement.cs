@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Transform groundCheckLocation;
+    public float groundDist = 1f;
+    public LayerMask groundMask;
+    public CinemachineVirtualCamera vcam;
+    public GameObject followTarget; // we will use this for slight Y axis camera rotation
+
     private CharacterController controller;
     private Vector3 playerVelocity;
     private Input playerInput;
@@ -18,17 +24,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping = false;
     private bool isGrounded = false;
 
-    public float gravity = -9.8f;
+    private float gravity = -9.8f;
 
-    public float sensitivity = 10.0f;
-    public GameObject followTarget; // we will use this for slight Y axis camera rotation
-    public float moveSpeed = 10.0f;
-    public float jumpHeight = 1.0f;
+    private float sensitivity = 10.0f;
+    private float moveSpeed = 10.0f;
+    private float jumpHeight = 1.0f;
 
-    public Transform groundCheckLocation;
-    public float groundDist = 1f;
-    public LayerMask groundMask;
-    public CinemachineVirtualCamera vcam;
 
     //attack
     [SerializeField]
@@ -36,12 +37,24 @@ public class PlayerMovement : MonoBehaviour
     private float attackTime = 0.0f;
     private bool isAttacking = false;
 
+    [SerializeField]
+    private int HP;
+
 
     //reset rotations upon respawn from death
     public void ResetRotations()
     {
         xRotation = 0.0f;
         yRotation = 0.0f;
+    }
+
+    public void OnHit(int damage)
+    {
+        HP -= damage;
+        if (HP <= 0)
+        {
+            Debug.Log("rip");
+        }
     }
 
 
