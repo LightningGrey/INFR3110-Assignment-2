@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         healthBar.SetHealth(HP);
         if (HP <= 0)
         {
-            Debug.Log("rip");
+            //Debug.Log("rip");
         }
     }
 
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = true;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
-            Debug.Log("Jump");
+            //Debug.Log("Jump");
         }
     }
 
