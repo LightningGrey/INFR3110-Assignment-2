@@ -21,7 +21,10 @@ public class BerserkerBehaviour : Enemy
 
     public void OnDestroy()
     {
-        _endTrigger.GetComponent<EndTrigger>().Call();
+        if (_endTrigger != null)
+        {
+            _endTrigger.GetComponent<EndTrigger>().Call();
+        }
     }
 
     // Start is called before the first frame update
