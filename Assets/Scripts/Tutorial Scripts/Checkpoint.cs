@@ -35,7 +35,7 @@ public class Checkpoint : MonoBehaviour
             }
 
 
-            Text CheckpHitText = GameObject.Find("Canvas/Checkpoint_Text").GetComponent<Text>();
+            Text CheckpHitText = GameObject.Find("Player HUD/Checkpoint_Text").GetComponent<Text>();
 
             if (timeRemaining > 0)
             {
