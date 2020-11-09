@@ -16,6 +16,14 @@ public class BerserkerBehaviour : Enemy
     public float attackTime = 0.0f;
 
 
+    [SerializeField]
+    private GameObject _endTrigger;
+
+    public void OnDestroy()
+    {
+        _endTrigger.GetComponent<EndTrigger>().Call();
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
