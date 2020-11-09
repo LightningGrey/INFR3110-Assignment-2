@@ -7,6 +7,7 @@ public class Checkpoint : MonoBehaviour
 {
     [SerializeField]
     private DeathPlane _plane;
+    //TODO: make this non-static
     private static float timeRemaining = 0.0f;
     private void CheckpointText()
     {

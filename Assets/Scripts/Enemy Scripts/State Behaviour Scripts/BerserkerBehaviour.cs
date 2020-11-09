@@ -20,6 +20,7 @@ public class BerserkerBehaviour : Enemy
     private GameObject _endTrigger;
     private EndTrigger _trigger;
 
+    //TODO: change this
     private void OnDestroy()
     {
        _trigger.Call();
