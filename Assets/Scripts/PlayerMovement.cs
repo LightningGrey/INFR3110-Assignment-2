@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public CinemachineVirtualCamera vcam;
     public GameObject followTarget; // we will use this for slight Y axis camera rotation
+    public HealthBar healthBar;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -39,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private int HP;
-
+    
 
     //reset rotations upon respawn from death
     public void ResetRotations()
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnHit(int damage)
     {
         HP -= damage;
+        healthBar.SetHealth(HP);
         if (HP <= 0)
         {
             Debug.Log("rip");
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        healthBar.SetMaxHealth(HP);
         playerInput = new Input();
 
         playerInput.Gameplay.Move.performed += ctx => moveVec = ctx.ReadValue<Vector2>();

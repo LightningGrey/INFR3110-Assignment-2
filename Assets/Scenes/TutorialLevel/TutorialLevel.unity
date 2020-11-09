@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 80
+  healthBar: {fileID: 2018672256}
   state: 0
   player: {fileID: 172908842}
   character: {fileID: 11400000, guid: 78d207552b963ee45b0a635a8c29385d, type: 2}
@@ -287,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28417010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.255, y: 13.101999, z: 0.78}
+  m_LocalPosition: {x: 10.255, y: 13.101999, z: 340.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 928173255}
@@ -657,6 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+  healthBar: {fileID: 0}
   enemyTrigger: {fileID: 1021288424}
 --- !u!54 &336878787
 Rigidbody:
@@ -1238,7 +1240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850649464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.255, y: 13.101999, z: 0.78}
+  m_LocalPosition: {x: 10.255, y: 13.101999, z: 340.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1606,7 +1608,7 @@ GameObject:
   - component: {fileID: 1075807520}
   - component: {fileID: 1075807519}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Player HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1868,6 +1870,11 @@ PrefabInstance:
       propertyPath: HP
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 86179209693354118, guid: acc741945ac746e49bc2774794c15567,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1650856521}
     - target: {fileID: 86179209693354119, guid: acc741945ac746e49bc2774794c15567,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1881,7 +1888,7 @@ PrefabInstance:
     - target: {fileID: 86179209693354119, guid: acc741945ac746e49bc2774794c15567,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6
+      value: 346
       objectReference: {fileID: 0}
     - target: {fileID: 86179209693354119, guid: acc741945ac746e49bc2774794c15567,
         type: 3}
@@ -2202,10 +2209,10 @@ MonoBehaviour:
 
     - Jump Around
 
-    - Attack The Target
+    - Break the Crystal
 
     -
-    Defeat all Enemies'
+    Defeat the Enemy'
 --- !u!222 &1449756962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2413,7 +2420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec870c06808d67d4fbe7e9b0b4ba6234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 1650856522}
 --- !u!114 &1650856522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2698,7 +2705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec870c06808d67d4fbe7e9b0b4ba6234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 2018672257}
 --- !u!114 &2018672257
 MonoBehaviour:
   m_ObjectHideFlags: 0

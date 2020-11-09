@@ -27,6 +27,7 @@ public class BerserkerBehaviour : Enemy
     // Start is called before the first frame update
     void Awake()
     {
+        healthBar.SetMaxHealth(HP);
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         navMeshAgent.Warp(this.transform.position);
     }
