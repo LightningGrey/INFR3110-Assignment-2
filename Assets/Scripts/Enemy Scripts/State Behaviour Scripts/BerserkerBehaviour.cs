@@ -11,7 +11,7 @@ public class BerserkerBehaviour : Enemy
     public float speed = 0.3f;
     public float reach = 2.0f;
     NavMeshAgent navMeshAgent;
-    public enum CharacterState { idle, attacking, moving, blocking}
+    public enum CharacterState {idle, attacking, moving, blocking}
 
     public float attackTime = 0.0f;
 
@@ -44,6 +44,8 @@ public class BerserkerBehaviour : Enemy
     {
         //Behaviour for idle position
         //Debug.Log(character.charName + " is idle");
+        navMeshAgent.speed = 0.0f;
+        navMeshAgent.SetDestination(this.transform.position);
         if (Vector3.Distance(this.transform.position, player.transform.position) < 15.0f)
         {
             state = CharacterState.moving;
@@ -88,6 +90,7 @@ public class BerserkerBehaviour : Enemy
         }
         else
         {
+            navMeshAgent.speed = speed;
             navMeshAgent.SetDestination(player.transform.position);
         }
     }
