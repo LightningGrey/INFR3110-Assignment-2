@@ -11,7 +11,7 @@ public class Checkpoint : MonoBehaviour
     private void CheckpointText()
     {
         timeRemaining = 3.0f;
-        Debug.Log("Checkpoint");
+        //Debug.Log("Checkpoint");
 
     }
 
@@ -31,7 +31,7 @@ public class Checkpoint : MonoBehaviour
             {
                 timeRemaining -= Time.deltaTime;
 
-                Debug.Log(timeRemaining);
+               // Debug.Log(timeRemaining);
             }
 
 

@@ -7,7 +7,7 @@ public class Crystal : Enemy
     [SerializeField]
     private GameObject enemyTrigger;
 
-    public void OnDestroy()
+    private void OnDestroy()
     {
         enemyTrigger.SetActive(true);
     }

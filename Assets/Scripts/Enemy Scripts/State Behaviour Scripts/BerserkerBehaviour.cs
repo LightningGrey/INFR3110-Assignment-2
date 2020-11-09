@@ -18,13 +18,11 @@ public class BerserkerBehaviour : Enemy
 
     [SerializeField]
     private GameObject _endTrigger;
+    private EndTrigger _trigger;
 
-    public void OnDestroy()
+    private void OnDestroy()
     {
-        if (_endTrigger != null)
-        {
-            _endTrigger.GetComponent<EndTrigger>().Call();
-        }
+       _trigger.Call();
     }
 
     // Start is called before the first frame update
@@ -33,6 +31,7 @@ public class BerserkerBehaviour : Enemy
         healthBar.SetMaxHealth(HP);
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         navMeshAgent.Warp(this.transform.position);
+        _trigger = _endTrigger.GetComponent<EndTrigger>();
     }
 
     // Update is called once per frame
