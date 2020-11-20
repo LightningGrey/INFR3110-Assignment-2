@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class EndTrigger : MonoBehaviour
 {
-    public void Call()
-    {
-        gameObject.SetActive(true);
-    }
 
     void OnTriggerEnter(Collider other)
     {
