@@ -5,12 +5,12 @@ using UnityEngine;
 public class Crystal : Enemy
 {
     [SerializeField]
-    private GameObject enemyTrigger;
+    private EnemyPool enemyTrigger;
 
-    private void OnDestroy()
+    override public void Reset()
     {
-        enemyTrigger.SetActive(true);
+        enemyTrigger.GetEnemy();
+        Destroy(gameObject);
     }
-
 }
 

@@ -22,6 +22,21 @@ public class BerserkerBehaviour : Enemy
         healthBar.SetMaxHealth(HP);
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         navMeshAgent.Warp(this.transform.position);
+        player = GameObject.FindGameObjectWithTag("Player");
+        manager = GameObject.FindGameObjectWithTag("Pool").GetComponent<EnemyPool>();
+    }
+
+    override public void Reset()
+    {
+        //reset all variables
+        HP = maxHP;
+        healthBar.SetHealth(HP);
+        transform.position = originalPos;
+        transform.rotation = originalRot;
+        attackTime = 0.0f;
+        state = CharacterState.idle;
+
+        manager.ResetEnemy(gameObject);
     }
 
     // Update is called once per frame
