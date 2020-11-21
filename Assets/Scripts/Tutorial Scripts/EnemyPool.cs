@@ -8,6 +8,7 @@ public class EnemyPool : MonoBehaviour
     private GameObject _enemyClone;
     [SerializeField]
     private int _maxEnemies = 3;
+    public List<Vector3> _offsets;
 
     private Queue<GameObject> _enemyPool;
     [SerializeField]
@@ -27,7 +28,6 @@ public class EnemyPool : MonoBehaviour
             _enemyClone = Instantiate(enemy);
             _enemyClone.SetActive(false);
             _enemyPool.Enqueue(_enemyClone);
-            _manager.enemies.Add(_enemyClone);
         }
     }
 
@@ -40,8 +40,9 @@ public class EnemyPool : MonoBehaviour
         {
             _enemyPool.Enqueue(Instantiate(enemy));
         }
+        _manager.enemies.Add(enemy);
         enemy.SetActive(true);
-        return enemy;
+        return enemy;           
     }
 
     public void ResetEnemy(GameObject _enemy)
@@ -50,8 +51,27 @@ public class EnemyPool : MonoBehaviour
         _enemyPool.Enqueue(_enemy);
         _manager.Call(_enemy);
 
-        //TODO: move count check from enemy handler to here
-        //TODO: GetEnemy calls here, perform other checks in Handler
+        //new spawn wave
+        if (_manager.enemies.Count <= 0)
+        {
+            if (_manager.waves.Count > 0)
+            {
+                for (int i = 0; i < _manager.waves[0]; i++)
+                {
+                    GameObject newEnemy;
+                    if (i >= 1)
+                    {
+                        newEnemy = GetEnemy();
+                        newEnemy.transform.position += _offsets[i - 1];
+                    } else
+                    {
+                        newEnemy = GetEnemy();
+                    }
+                }
+                _manager.waves.RemoveAt(0);
+            }
+        }
+
     }
 
     public bool IsEmpty()

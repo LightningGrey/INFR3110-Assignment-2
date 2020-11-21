@@ -5,12 +5,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int HP;
+    protected int maxHP;
     public HealthBar healthBar;
 
     public EnemyPool manager;
+    protected Vector3 originalPos;
+    protected Quaternion originalRot;
 
     void Start()
     {
+        maxHP = HP;
+        originalPos = transform.position;
+        originalRot = transform.rotation;
     }
 
     public void OnHit(int damage)
@@ -19,8 +25,12 @@ public class Enemy : MonoBehaviour
         healthBar.SetHealth(HP);
         if (HP <= 0)
         {
-            manager.ResetEnemy(gameObject);
+            Reset();
         }
+    }
+
+    virtual public void Reset()
+    {
     }
 
 }

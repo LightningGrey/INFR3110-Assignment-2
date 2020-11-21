@@ -7,7 +7,7 @@ public class EnemyHandler : MonoBehaviour
     //max number of enemies in spawn
     public List<GameObject> enemies;
     //how many waves
-    [SerializeField] private List<int> waves;
+    public List<int> waves;
     //final trigger
     [SerializeField] private GameObject triggerableObject;
 
@@ -16,20 +16,13 @@ public class EnemyHandler : MonoBehaviour
     {
         //remove enemy from list
         enemies.Remove(enemy);
-        //
+
         if (enemies.Count <= 0)
         {
             //no more waves, activate last trigger
             if (waves.Count <= 0)
             {
                 triggerableObject.SetActive(true);
-            }
-            else
-            {
-                for (int i = 0; i < waves[0]; i++)
-                {
-                    return;
-                }
             }
         }
     }
