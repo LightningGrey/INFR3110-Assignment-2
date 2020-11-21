@@ -10,6 +10,8 @@ public class EnemyPool : MonoBehaviour
     private int _maxEnemies = 3;
 
     private Queue<GameObject> _enemyPool;
+    [SerializeField]
+    private EnemyHandler _manager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class EnemyPool : MonoBehaviour
             _enemyClone = Instantiate(enemy);
             _enemyClone.SetActive(false);
             _enemyPool.Enqueue(_enemyClone);
+            _manager.enemies.Add(_enemyClone);
         }
     }
 
@@ -45,6 +48,10 @@ public class EnemyPool : MonoBehaviour
     {
         _enemy.SetActive(false);
         _enemyPool.Enqueue(_enemy);
+        _manager.Call(_enemy);
+
+        //TODO: move count check from enemy handler to here
+        //TODO: GetEnemy calls here, perform other checks in Handler
     }
 
     public bool IsEmpty()

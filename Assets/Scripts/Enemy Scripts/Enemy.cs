@@ -7,11 +7,10 @@ public class Enemy : MonoBehaviour
     public int HP;
     public HealthBar healthBar;
 
-    public EnemyHandler manager;
+    public EnemyPool manager;
 
     void Start()
     {
-       
     }
 
     public void OnHit(int damage)
@@ -20,8 +19,7 @@ public class Enemy : MonoBehaviour
         healthBar.SetHealth(HP);
         if (HP <= 0)
         {
-            manager.Call(gameObject);
-            Destroy(gameObject);
+            manager.ResetEnemy(gameObject);
         }
     }
 

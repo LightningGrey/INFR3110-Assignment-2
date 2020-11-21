@@ -447,6 +447,55 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1186589190}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &236362769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236362770}
+  - component: {fileID: 236362771}
+  m_Layer: 0
+  m_Name: Enemy Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &236362770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236362769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.5, y: 0, z: 378.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &236362771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236362769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707181d497e3a6c41a73e484f3446499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  waves: 03000000
+  triggerableObject: {fileID: 2093784563}
 --- !u!1 &292556037 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1599826595754709761, guid: bb614e88e373cdb4eaf9e45cd111e1c5,
@@ -517,6 +566,7 @@ MonoBehaviour:
   - {fileID: 2128759765}
   - {fileID: 879050607}
   - {fileID: 955801386}
+  waves: 
   triggerableObject: {fileID: 2093784563}
 --- !u!1 &336878781
 GameObject:
@@ -606,7 +656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   healthBar: {fileID: 1102303714}
-  manager: {fileID: 1965114938}
+  manager: {fileID: 0}
 --- !u!4 &336878785
 Transform:
   m_ObjectHideFlags: 0
@@ -1921,7 +1971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 80
   healthBar: {fileID: 1100934661}
-  manager: {fileID: 329232165}
+  manager: {fileID: 0}
   state: 0
   player: {fileID: 172908842}
   character: {fileID: 11400000, guid: 78d207552b963ee45b0a635a8c29385d, type: 2}
@@ -2289,7 +2339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 80
   healthBar: {fileID: 475985250}
-  manager: {fileID: 329232165}
+  manager: {fileID: 0}
   state: 0
   player: {fileID: 172908842}
   character: {fileID: 11400000, guid: 78d207552b963ee45b0a635a8c29385d, type: 2}
@@ -2677,6 +2727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 919132148331081056}
+  waves: 
   triggerableObject: {fileID: 329232163}
 --- !u!1 &1075807518
 GameObject:
@@ -4424,6 +4475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 336878781}
+  waves: 
   triggerableObject: {fileID: 1021288424}
 --- !u!4 &1965114939
 Transform:
@@ -4439,6 +4491,52 @@ Transform:
   - {fileID: 336878785}
   m_Father: {fileID: 0}
   m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2005656004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2005656006}
+  - component: {fileID: 2005656005}
+  m_Layer: 0
+  m_Name: Enemy Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2005656005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005656004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08e2179716f38441b37224f9bd599ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 7925541992295854244, guid: e9327577b1c0db242bc2f3b03477da43, type: 3}
+  _maxEnemies: 3
+  _manager: {fileID: 0}
+--- !u!4 &2005656006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005656004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2015535534
 GameObject:
@@ -4887,7 +4985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 80
   healthBar: {fileID: 1312639135}
-  manager: {fileID: 329232165}
+  manager: {fileID: 0}
   state: 0
   player: {fileID: 172908842}
   character: {fileID: 11400000, guid: 78d207552b963ee45b0a635a8c29385d, type: 2}
@@ -5021,7 +5119,7 @@ PrefabInstance:
         type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1021288426}
+      objectReference: {fileID: 0}
     - target: {fileID: 7401383274675448350, guid: e9327577b1c0db242bc2f3b03477da43,
         type: 3}
       propertyPath: m_RootOrder
