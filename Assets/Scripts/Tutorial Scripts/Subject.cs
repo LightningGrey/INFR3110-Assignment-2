@@ -6,9 +6,9 @@ public class Subject : MonoBehaviour
 {
     public List<Observer> Observers = new List<Observer>();
 
-    public virtual void Notify() {
+    public virtual void Notify(QuestAction questType) {
         for (int i = 0; i < Observers.Count; i++) {
-            Observers[i].OnNotify();
+            Observers[i].OnNotify(questType);
         }
     }
 

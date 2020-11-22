@@ -10,6 +10,7 @@ public class EnemyHandler : MonoBehaviour
     public List<int> waves;
     //final trigger
     [SerializeField] private GameObject triggerableObject;
+    [SerializeField] private Subject subject;
 
     // Start is called before the first frame update
     public void Call(GameObject enemy)
@@ -22,6 +23,7 @@ public class EnemyHandler : MonoBehaviour
             //no more waves, activate last trigger
             if (waves.Count <= 0)
             {
+                subject.Notify(QuestAction.Defeat);
                 triggerableObject.SetActive(true);
             }
         }

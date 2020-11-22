@@ -14,9 +14,10 @@ public class QuestManager : MonoBehaviour
         Quests[0].gameObject.SetActive(true);
     }
 
-    void NextQuest() {
+    public void NextQuest() {
+        completedQuests++;
         Quests[completedQuests-1].Complete();
-        if (completedQuests != 6) {
+        if (completedQuests < 6) {
             Quests[completedQuests].gameObject.SetActive(true);
         }
     }

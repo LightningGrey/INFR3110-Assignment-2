@@ -5,5 +5,5 @@ using UnityEngine;
 public abstract class Observer : MonoBehaviour
 {
 
-    public abstract void OnNotify();
+    public abstract void OnNotify(QuestAction questType);
 }
