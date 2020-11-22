@@ -1,18 +1,101 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
+using System.IO;
 
 public class StatsLogger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    const string DLL_NAME = "StatsLoggerDLL";
+
+	[DllImport(DLL_NAME)]
+	private static extern void ResetLogger();
+	
+	[DllImport(DLL_NAME)]
+	private static extern void SaveCheckpointTime(float time);
+	[DllImport(DLL_NAME)]
+	private static extern float GetTotalTime();
+	[DllImport(DLL_NAME)]
+	private static extern float GetCheckpointTime(int index);
+	[DllImport(DLL_NAME)]
+	private static extern int GetNumCheckpoints();
+
+	[DllImport(DLL_NAME)]
+	private static extern void SaveAttacks();
+	[DllImport(DLL_NAME)]
+	private static extern int ReturnAttacks();
+	[DllImport(DLL_NAME)]
+	private static extern void SaveHits();
+	[DllImport(DLL_NAME)]
+	private static extern int ReturnHits();
+	[DllImport(DLL_NAME)]
+	private static extern void CalcAccuracy();
+	[DllImport(DLL_NAME)]
+	private static extern float ReturnAccuracy();
+
+	[DllImport(DLL_NAME)]
+	private static extern void SaveEnemies();
+	[DllImport(DLL_NAME)]
+	private static extern int ReturnEnemies();
+
+	[DllImport(DLL_NAME)]
+	private static extern void SaveJumps();
+	[DllImport(DLL_NAME)]
+	private static extern int ReturnJumps();
+
+	[DllImport(DLL_NAME)]
+	private static extern void SaveDeaths();
+	[DllImport(DLL_NAME)]
+	private static extern int ReturnDeaths();
+
+	[DllImport(DLL_NAME)]
+	private static extern bool SaveToFile([MarshalAs(UnmanagedType.LPStr)] string file);
+	[DllImport(DLL_NAME)]
+	private static extern bool LoadFromFile([MarshalAs(UnmanagedType.LPStr)] string file);
+
+
+	public void OnCheckpoint(float time)
+	{
+		SaveCheckpointTime(time);
+	}
+
+	public void OnAttack()
+	{
+		SaveAttacks();
+	}
+    public void OnHit()
     {
-        
+		SaveHits();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnJump()
+	{
+		SaveJumps();
+	}
+
+	public void OnEnemyKill()
     {
-        
+		SaveEnemies();
     }
+
+	public void OnDeath()
+	{
+		SaveDeaths();
+	}
+
+	public void SaveStats()
+    {
+		if (File.Exists("Assets/Resources/Stats.txt"))
+		{
+			File.Delete("Assets/Resources/Stats.txt");
+		}
+		Debug.Log(SaveToFile("Assets/Resources/Stats.txt"));
+	}
+
+
+	private void OnDestroy()
+    {
+		ResetLogger();
+    }
+
 }

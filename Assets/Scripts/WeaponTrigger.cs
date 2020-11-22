@@ -6,6 +6,8 @@ public class WeaponTrigger : MonoBehaviour
 {
     [SerializeField]
     private int attackDamage;
+    [SerializeField]
+    private StatsLogger _stats;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +18,9 @@ public class WeaponTrigger : MonoBehaviour
         if (other.tag == "Enemy")
         {
             other.GetComponent<Enemy>().OnHit(attackDamage);
+            if (_stats) {
+                _stats.OnHit();
+            }
         }
     }
 }

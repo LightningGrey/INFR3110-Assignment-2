@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Crystal : Enemy
 {
-    [SerializeField]
-    private EnemyPool enemyTrigger;
 
     override public void Reset()
     {
-        enemyTrigger.GetEnemy();
+        manager.GetEnemy();
         Destroy(gameObject);
     }
 }

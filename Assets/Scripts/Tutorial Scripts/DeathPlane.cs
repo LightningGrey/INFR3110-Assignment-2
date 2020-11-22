@@ -8,6 +8,8 @@ public class DeathPlane : MonoBehaviour
     private GameObject _checkpoint;
     [SerializeField]
     private GameObject _follow;
+    [SerializeField]
+    private StatsLogger _stats;
 
     public void SetCheckpoint(GameObject p_checkpoint)
     {
@@ -22,7 +24,8 @@ public class DeathPlane : MonoBehaviour
             other.GetComponent<CharacterController>().enabled = false;
             other.transform.position = _checkpoint.transform.position;
             other.GetComponent<PlayerMovement>().ResetRotations();
-            other.GetComponent<CharacterController>().enabled = true;  
+            other.GetComponent<CharacterController>().enabled = true;
+            _stats.OnDeath();
         }
     }
 }

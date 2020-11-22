@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Pool
+  - Logger
   layers:
   - Default
   - TransparentFX
