@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     //logger variables
     [SerializeField] private StatsLogger _stats;
+    public bool hitDetection = false;
 
 
     private Subject subject;
@@ -139,7 +140,6 @@ public class PlayerMovement : MonoBehaviour
             isAttacking = true;
             Quaternion rot = Quaternion.LookRotation(transform.position);
             hitbox.gameObject.SetActive(true);
-            _stats.OnAttack();
         }
     }
 
@@ -193,6 +193,12 @@ public class PlayerMovement : MonoBehaviour
                 hitbox.gameObject.SetActive(false);
                 attackTime = 0.0f;
                 isAttacking = false;
+
+                _stats.OnAttack();
+                if (hitDetection == true) { 
+                    _stats.OnHit();
+                }
+                hitDetection = false;
             }
         }
 

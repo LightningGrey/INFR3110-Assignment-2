@@ -821,6 +821,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &172908846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 86179209693354118, guid: acc741945ac746e49bc2774794c15567,
+    type: 3}
+  m_PrefabInstance: {fileID: 1186589190}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172908842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be89a86c260e525499106dd887442da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &193935223
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +943,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &236362771
 MonoBehaviour:
@@ -1132,8 +1144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   healthBar: {fileID: 1102303714}
-  manager: {fileID: 0}
-  enemyTrigger: {fileID: 2005656005}
+  manager: {fileID: 2005656005}
   subject: {fileID: 172908843}
 --- !u!4 &336878785
 Transform:
@@ -2060,6 +2071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkpoint: {fileID: 494248476}
   _follow: {fileID: 194005469}
+  _stats: {fileID: 1756531918}
 --- !u!1 &628990008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2893,7 +2905,7 @@ RectTransform:
   - {fileID: 2129914404}
   - {fileID: 1610868296}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3268,6 +3280,11 @@ PrefabInstance:
       propertyPath: _stats
       value: 
       objectReference: {fileID: 1756531918}
+    - target: {fileID: 86179209962280519, guid: acc741945ac746e49bc2774794c15567,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 172908846}
     - target: {fileID: 86179209962280519, guid: acc741945ac746e49bc2774794c15567,
         type: 3}
       propertyPath: attackDamage
@@ -4789,7 +4806,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 65, y: 40, z: 1}
+  m_Size: {x: 75, y: 40, z: 1}
   m_Center: {x: 13, y: 0, z: 0}
 --- !u!1 &1756531917
 GameObject:
@@ -4832,7 +4849,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1789010604 stripped
 GameObject:
@@ -4916,7 +4933,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1867385844 stripped
 GameObject:
@@ -5151,7 +5168,7 @@ Transform:
   m_LocalScale: {x: 3, y: 5, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1978999909
 GameObject:
@@ -5334,7 +5351,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2010726444
 GameObject:
@@ -5633,6 +5650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2792b49157f808c458001a5c3772a3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stats: {fileID: 1756531918}
+  previousPoint: {fileID: 1747567635}
   subject: {fileID: 172908843}
 --- !u!1001 &2099376348
 PrefabInstance:

@@ -15,6 +15,8 @@ public class BerserkerBehaviour : Enemy
 
     public float attackTime = 0.0f;
 
+    Transform weaponHitbox;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -24,6 +26,7 @@ public class BerserkerBehaviour : Enemy
         navMeshAgent.Warp(this.transform.position);
         player = GameObject.FindGameObjectWithTag("Player");
         manager = GameObject.FindGameObjectWithTag("Pool").GetComponent<EnemyPool>();
+        weaponHitbox = this.transform.Find("Weapon Hitbox");
     }
 
     override public void Reset()
@@ -35,6 +38,7 @@ public class BerserkerBehaviour : Enemy
         transform.rotation = originalRot;
         attackTime = 0.0f;
         state = CharacterState.idle;
+        weaponHitbox.gameObject.SetActive(false);
 
         manager.ResetEnemy(gameObject);
     }
@@ -72,7 +76,6 @@ public class BerserkerBehaviour : Enemy
     {
         //Behaviour for attacking position
         //Debug.Log(character.charName + " is attacking");
-        var weaponHitbox = this.transform.Find("Weapon Hitbox");
         if (weaponHitbox.gameObject.activeSelf == false)
         {
             Vector3 dir = player.transform.position - this.transform.position;

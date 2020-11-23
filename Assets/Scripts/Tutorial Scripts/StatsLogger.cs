@@ -89,7 +89,7 @@ public class StatsLogger : MonoBehaviour
 		{
 			File.Delete("Assets/Resources/Stats.txt");
 		}
-		Debug.Log(SaveToFile("Assets/Resources/Stats.txt"));
+		SaveToFile("Assets/Resources/Stats.txt");
 	}
 
 
