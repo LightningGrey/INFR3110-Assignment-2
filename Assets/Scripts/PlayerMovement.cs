@@ -40,7 +40,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private int HP;
-    
+
+    private Subject subject;
+    private Vector2 prevRotation;
+    private Vector3 prevPosition;
 
     //reset rotations upon respawn from death
     public void ResetRotations()
@@ -89,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        subject = this.GetComponent<Subject>();
     }
 
     private Vector3 GetMoveVector()
@@ -119,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
             //Debug.Log("Jump");
+            subject.Notify(QuestAction.Jump);
         }
     }
 
@@ -141,6 +146,10 @@ public class PlayerMovement : MonoBehaviour
         xRotation += mouseX;
         yRotation -= mouseY;
 
+        if (prevRotation.x != xRotation || prevRotation.y != yRotation) {
+            subject.Notify(QuestAction.Look);
+        }
+
         // clamp y rotation here so you cant look upside down with a broken neck
         yRotation = Mathf.Clamp(yRotation, 0.0f, 25.0f);
 
@@ -149,6 +158,10 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 curMoveVector = GetMoveVector();
         controller.Move(curMoveVector);
+
+        if (prevPosition != this.gameObject.transform.position) {
+            subject.Notify(QuestAction.Move);
+        }
 
         GroundCheck();
         if (isJumping && isGrounded)
@@ -180,6 +193,8 @@ public class PlayerMovement : MonoBehaviour
         // force camera update; this seems to fix the flickering position of the vcam
         // when the camera is angled all the way down
         vcam.InternalUpdateCameraState(followTarget.transform.up, Time.deltaTime);
+        prevRotation = new Vector2(xRotation, yRotation);
+        prevPosition = this.gameObject.transform.position;
     }
 
 }

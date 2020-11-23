@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 86179209693354119}
   - component: {fileID: 86179209693354234}
   - component: {fileID: 86179209693354118}
+  - component: {fileID: 1379512491987700273}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -221,18 +222,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be89a86c260e525499106dd887442da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -19.6
-  sensitivity: 10
-  followTarget: {fileID: 86179209137478054}
-  moveSpeed: 13
-  jumpHeight: 0.66
   groundCheckLocation: {fileID: 86179209496804121}
   groundDist: 1
   groundMask:
     serializedVersion: 2
     m_Bits: 256
   vcam: {fileID: 0}
+  followTarget: {fileID: 86179209137478054}
+  healthBar: {fileID: 0}
   hitbox: {fileID: 86179209962280519}
+  HP: 0
+--- !u!114 &1379512491987700273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86179209693354117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5ae82c0c94a9b4ca7daa3ce033da3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _observers: []
 --- !u!1 &86179209962280517
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb6f61a00f35cc49abcc9f4f91f766f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 0
 --- !u!1 &3223161019441222261
 GameObject:
   m_ObjectHideFlags: 0
