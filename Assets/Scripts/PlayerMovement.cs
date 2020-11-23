@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isAttacking = false;
 
     [SerializeField]
+    private int maxHP;
+    [SerializeField]
     private int HP;
 
     //logger variables
@@ -61,10 +63,13 @@ public class PlayerMovement : MonoBehaviour
     {
         HP -= damage;
         healthBar.SetHealth(HP);
-        if (HP <= 0)
-        {
-            //Debug.Log("rip");
+        if (HP <= 0) {
+            this.transform.position = GameObject.Find("DeathPlane").transform.position;
         }
+    }
+    public void ResetHealth() {
+        HP = maxHP;
+        healthBar.SetHealth(HP);
     }
 
 
@@ -98,6 +103,9 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         subject = this.GetComponent<Subject>();
+        HP = maxHP;
+        healthBar.SetMaxHealth(maxHP);
+
     }
 
     private Vector3 GetMoveVector()
