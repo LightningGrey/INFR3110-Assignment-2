@@ -1,0 +1,15 @@
+Total Time: 0
+Checkpoint 1 Time: 0s
+Checkpoint 2 Time: 0s
+Checkpoint 3 Time: 0s
+End: 0s
+
+Attacks Used: 0
+Attacks Hit: 0
+Attack Accuracy: 0%
+
+Enemies Defeated: 0
+
+Total Jumps: 0
+
+Total Deaths: 0
