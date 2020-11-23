@@ -22,7 +22,8 @@ public class SceneChange : MonoBehaviour
     public void Resume(){
         //Resume Code Goes in here
     }
-    public void Options(){
+    public void Stats(){
         //Option Code Goes in here
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 }

@@ -54,6 +54,47 @@ public class StatsLogger : MonoBehaviour
 	private static extern bool LoadFromFile([MarshalAs(UnmanagedType.LPStr)] string file);
 
 
+	//getters
+	public float TotalTime()
+    {
+		return GetTotalTime();
+    }
+	public float CheckpointTime(int index)
+    {
+		return GetCheckpointTime(index);
+	}
+	public float NumCheckpoints()
+	{
+		return GetNumCheckpoints();
+	}
+	public int Attacks()
+	{
+		return ReturnAttacks();
+	}
+	public int Hits()
+	{
+		return ReturnHits();
+	}
+	public float Accuracy()
+	{
+		return ReturnAccuracy();
+	}
+	public int Enemies()
+	{
+		return ReturnEnemies();
+	}
+	public int Jumps()
+	{
+		return ReturnJumps();
+	}
+	public int Deaths()
+	{
+		return ReturnDeaths();
+	}
+
+
+
+	//setters
 	public void OnCheckpoint(float time)
 	{
 		SaveCheckpointTime(time);
@@ -85,13 +126,20 @@ public class StatsLogger : MonoBehaviour
 
 	public void SaveStats()
     {
-		if (File.Exists("Assets/Resources/Stats.txt"))
+		if (File.Exists(Application.dataPath + "/Resources/Stats.txt")) 
 		{
-			File.Delete("Assets/Resources/Stats.txt");
+			File.Delete(Application.dataPath + "/Resources/Stats.txt");
 		}
-		SaveToFile("Assets/Resources/Stats.txt");
+		SaveToFile(Application.dataPath + "/Resources/Stats.txt");
 	}
 
+	public void LoadStats()
+	{
+		if (File.Exists(Application.dataPath + "/Resources/Stats.txt"))
+		{
+			LoadFromFile(Application.dataPath + "/Resources/Stats.txt");
+		}
+	}
 
 	private void OnDestroy()
     {
