@@ -1,1 +1,1 @@
-couldn't build EXE due to problems with FMOD implementation preventing build
+it wasn't FMOD that broke the build sorry, figured out how to do the EXE right after 
