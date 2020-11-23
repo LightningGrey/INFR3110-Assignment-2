@@ -41,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private int HP;
 
+    //logger variables
+    [SerializeField] private StatsLogger _stats;
+
+
     private Subject subject;
     private Vector2 prevRotation;
     private Vector3 prevPosition;
@@ -123,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
             //Debug.Log("Jump");
+            _stats.OnJump();
             subject.Notify(QuestAction.Jump);
         }
     }
@@ -134,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
             isAttacking = true;
             Quaternion rot = Quaternion.LookRotation(transform.position);
             hitbox.gameObject.SetActive(true);
+            _stats.OnAttack();
         }
     }
 

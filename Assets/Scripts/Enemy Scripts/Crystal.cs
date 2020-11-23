@@ -13,6 +13,7 @@ public class Crystal : Enemy
     {
         enemyTrigger.GetEnemy();
         subject.Notify(QuestAction.Break);
+        manager.GetEnemy();
         Destroy(gameObject);
     }
 }

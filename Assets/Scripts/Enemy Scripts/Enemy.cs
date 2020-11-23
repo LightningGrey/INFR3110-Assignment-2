@@ -12,11 +12,15 @@ public class Enemy : MonoBehaviour
     protected Vector3 originalPos;
     protected Quaternion originalRot;
 
+    private StatsLogger _stats;
+
     void Start()
     {
         maxHP = HP;
         originalPos = transform.position;
         originalRot = transform.rotation;
+        _stats = GameObject.FindGameObjectWithTag("Logger").GetComponent<StatsLogger>();
+
     }
 
     public void OnHit(int damage)
@@ -25,6 +29,7 @@ public class Enemy : MonoBehaviour
         healthBar.SetHealth(HP);
         if (HP <= 0)
         {
+            _stats.OnEnemyKill();
             Reset();
         }
     }
