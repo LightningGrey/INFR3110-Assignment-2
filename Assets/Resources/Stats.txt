@@ -1,15 +1,15 @@
-Total Time: 0
-Checkpoint 1 Time: 0s
-Checkpoint 2 Time: 0s
-Checkpoint 3 Time: 0s
-End: 0s
+Total Time: 143.7
+Checkpoint 1 Time: 8.38s
+Checkpoint 2 Time: 16.08s
+Checkpoint 3 Time: 26.76s
+End: 92.48s
 
-Attacks Used: 0
-Attacks Hit: 0
-Attack Accuracy: 0%
+Attacks Used: 24
+Attacks Hit: 15
+Attack Accuracy: 62.5%
 
-Enemies Defeated: 0
+Enemies Defeated: 5
 
-Total Jumps: 0
+Total Jumps: 25
 
-Total Deaths: 0
+Total Deaths: 2
